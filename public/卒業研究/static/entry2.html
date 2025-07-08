@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>AceAcademy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/entry.css" />
+</head>
+<body>
+    <main class="container">
+        <h1 class="text-center">AceAcademy</h1>
+        <hr>
+        <div class="container">
+            <h2>新規ユーザー登録フォーム</h2>
+            <form action="/entryinput" method="POST">
+                <div class="mb-3 row">
+                    <label class="col-form-label col-sm-4" for="name">ユーザ名</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="name" class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-form-label col-sm-4" for="password">パスワード</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="password" class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-form-label col-sm-4" for="confirm_password">もう一度パスワードを書いてください</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="confirm_password" class="form-control" />
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary" value="登録" />
+                    <input type="reset" class="btn btn-outline-primary" value="リセット" />
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="container">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="../index.html">ホーム</a></li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

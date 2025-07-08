@@ -1,0 +1,175 @@
+/* 🌟 グローバル設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 🎨 ブランドカラー */
+:root {
+    --primary-color: #0056b3; /* メインカラー */
+    --secondary-color: #222;  /* ダークカラー */
+    --text-color: #333;
+    --white-color: #fff;
+    --success-color: #28a745;
+}
+
+/* 🌟 ナビバー */
+.navbar {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--white-color);
+}
+
+.navbar-nav .nav-link {
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* 🎨 ヒーローセクション */
+header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: var(--white-color);
+    padding: 60px 0;
+}
+
+/* 🌟 カードデザイン */
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.card-text {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* 🚀 ボタンデザイン */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #003d82;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* ✨ フォームデザイン */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* 🌟 フッター */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 20px 0;
+}
+
+/* 🎬 アニメーション */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 選択されていないオプションを薄く表示 */
+/* 初期状態で選択されているプレースホルダーの色を薄くする */
+/* select のプレースホルダーの色を input の placeholder に合わせる */
+select.form-control:invalid {
+    color: #586067; /* Bootstrap の placeholder 色 */
+}
+
+/* ナビバーのスタイル */
+.navbar-custom {
+    background: rgba(0, 0, 0, 0.7);
+    transition: background 0.3s ease-in-out;
+}
+.navbar-custom.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* ヒーローセクション */
+.hero-section {
+    background: linear-gradient(to right, #007bff, #6610f2);
+    padding: 100px 0;
+}
+
+/* カードのデザイン */
+.site-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.site-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* フォームのデザイン */
+.form-control, .btn {
+    border-radius: 8px;
+}
+#site {
+    color: #6c757d;
+}
+#site:valid {
+    color: #212529;
+}
+
+
+
+

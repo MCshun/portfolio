@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title WEB1
+    link(rel="stylesheet", href="/static/style.css")
+    script(src="/static/script.js")
+    link(href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;600&display=swap", rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css")
+
+
+  body
+    .slideshow
+      each image in [1, 2, 3, 4, 5, 6]
+        .slide(style=`background-image: url('/static/images/Garden1-${image}.png')`)
+      .overlay
+
+    header
+      .logo
+        img(src="/static/images/logo.png", alt="Logo")
+      
+      .welcome-message
+        h1 初心者さん大歓迎‼
+        h1 みんなでポーカーをたのしもう
+        p Beginners are welcome! Let's have fun poker!
+
+      nav.nav-center
+        ul
+          li: a(href="#system") SYSTEM
+          li: a(href="#drink") DRINK
+          li: a(href="#news") NEWS
+          li: a(href="#recruit") RECRUIT
+          li: a(href="#contact") CONTACT
+    
+      .fixed-buttons
+        a.button.white.button-text(href="tel:0538-31-8574")
+          i(class="fas fa-phone-alt")
+          span  0120-345-678
+        a.button.white.button-text(href="#access")
+          i(class="fas fa-map-marker-alt")
+          span アクセス
+        a.button.blue.button-text(href="#contact")
+          i(class="fas fa-pencil-alt")
+          span ご予約・お問い合わせ
+          
+    main
+      section#concept
+        .container
+          h2 CONCEPT
+          h4 コンセプト
+          hr
+          .logo-and-text
+            img(src="/static/images/logo.png", alt="Garden Logo")
+            .concept-text
+              h3 Amusement Poker Bar「Poke Bar」。
+              h3 世界で大人気のテキサスホールデムを本場さながらのディーラースタッフが、
+              h3 本格カジノのようなおもてなしを致します。
+              
+      section#system.container
+        h2 SYSTEMについて
+        p 当院では、最新の技術を駆使し、お客様に最適な治療を提供しています。
+
+      section#drink.container
+        h2 DRINKメニュー
+        p リラックスしていただけるよう、各種ドリンクをご用意しております。
+
+      section#news.container
+
+      section#access.container
+        p アクセス
+        h2 ACCESS
+        .access-wrapper
+          .access-text
+            h3 店舗所在地
+            p 〒123-4567 〇〇県〇〇市〇〇町
+            p 営業時間: 10:00〜20:00
+            p 定休日: 〇曜日
+            p お気軽にお立ち寄りください。
+          .map-container
+            iframe(
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.4784079387982!2d137.9217892740804!3d34.743539680915866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601afb92dc08a691%3A0x256d7a9af8ed6f86!2z44Ks44O844OH44Oz!5e0!3m2!1sja!2sjp!4v1736147235975!5m2!1sja!2sjp",
+              width="100%",
+              height="450",
+              style="border:0;",
+              allowfullscreen="",
+              loading="lazy",
+              referrerpolicy="no-referrer-when-downgrade"
+            )
+
+      section#recruit.container
+        h2 RECRUIT
+        p 現在、スタッフを募集しています。詳細はお問い合わせください。
+
+      section#contact.container
+        h2 お問い合わせ
+        p メール: info@example.com
+        p 電話: 0120-345-678
+
+    footer
+      .container
+        p © 2024 Garden Office

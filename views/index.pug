@@ -1,0 +1,99 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title UniWEB
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/static/style2.css")
+
+  body
+    // ナビバー
+    nav.navbar.navbar-expand-lg 
+      .container
+        a.navbar-brand(href="#") UniWEB 
+        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav")
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarNav
+          ul.navbar-nav.ms-auto
+            li.nav-item
+              a.nav-link(href="#projects") 販売中のサイト
+            li.nav-item
+              a.nav-link(href="#services") 開発依頼
+            li.nav-item
+              a.nav-link(href="#contact") お問い合わせ
+
+    // ヒーローセクション
+    header.hero-section.text-white.text-center.py-5
+      .container
+        h1 サイト販売 & サイト制作
+        p.lead WEBサイトを販売・開発します
+
+    // 販売中のサイト
+    section#projects.py-5
+      .container
+        h2.text-center.mb-4 【サイト一覧】
+        .row
+          .col-md-6
+            .card.site-card
+              img.card-img-top(src="/static/aceacademy.png" alt="AceAcademy")
+              .card-body
+                h5.card-title AceAcademy
+                p.card-text Valorantplayerのためのサイト
+                a.btn.btn-success(href="/details/aceacademy") サイトを見る
+          .col-md-6
+            .card.site-card
+              img.card-img-top(src="/static/WEB1.png" alt="WEB1")
+              .card-body
+                h5.card-title WEBサイト1
+                p.card-text 居酒屋など簡単なサイト設計
+                a.btn.btn-success(href="/web1") サイトを見る
+
+    // 受託開発
+    section#services.py-5.bg-light
+      .container
+        h2.text-center.mb-4 開発依頼
+        p.text-center カスタムWEBサイト開発のご依頼を受け付けています。
+        .text-center
+          a.btn.btn-primary(href="#contact") お問い合わせ
+
+    // お問い合わせフォーム
+    section#contact.py-5
+      .container
+        h2.text-center.mb-4 お問い合わせ
+        p.text-center ご質問・ご相談は以下のフォームからお願いします。
+        form#contactForm(onSubmit="submitForm(event)")
+          .mb-3
+            label.form-label(for="name") お名前
+            input#name.form-control(type="text" placeholder="お名前を入力してください" required)
+
+          .mb-3
+            label.form-label(for="email") メールアドレス
+            input#email.form-control(type="email" placeholder="メールアドレスを入力してください" required)
+
+          .mb-3
+            label.form-label(for="site") どのサイトについてですか？
+            select#site.form-control(name="site" required)
+              option(value="" disabled selected hidden) サイトを選択してください
+              option(value="AceAcademy") AceAcademy
+              option(value="WEBサイト1") WEBサイト1
+              option(value="その他") その他
+            p#siteError.text-danger 
+
+          .mb-3
+            label.form-label(for="message") メッセージ
+            textarea#message.form-control(rows="5" placeholder="お問い合わせ内容を入力してください" required)
+
+          .text-center
+            button#submitButton.btn.btn-primary(type="submit") 送信
+        p#responseMessage.text-center.mt-3.text-success
+
+    // フッター
+    footer.bg-dark.text-white.text-center.py-3
+      p &copy; 2025 UniWEB | 
+        a.text-white(href="#") GitHub 
+        |  | 
+        a.text-white(href="#") LinkedIn
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js")
+    script(src="/static/script.js")

@@ -1,0 +1,141 @@
+.adsense-left {
+    position: fixed;
+    left: 0;
+    top: 100px; /* ヘッダーの下に配置 */
+    width: 160px; /* 広告の幅 */
+    height: auto;
+    z-index: 100;
+}
+
+.adsense-right {
+    position: fixed;
+    right: 0;
+    top: 100px; /* ヘッダーの下に配置 */
+    width: 160px; /* 広告の幅 */
+    height: auto;
+    z-index: 100;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('/task_folder/game-streaming_01-1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.vertical-navbar {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  width: 265px;
+  height: calc(100% - 40px);
+  background-color: #cc0000;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-navbar-mobile, .header-container {
+  display: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-container img {
+  width: 90px;
+  height: 90px;
+}
+
+.logo-container .logo-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  color: #cc0000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+  z-index: 1001;
+}
+
+.vertical-navbar a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  width: 90%;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.vertical-navbar a:hover {
+  background-color: #ff6666;
+}
+
+@media (min-width: 1024px) {
+  main {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .vertical-navbar {
+    display: none !important;
+  }
+
+  .header-container, .menu-toggle {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent !important;
+    padding: 10px 20px;
+    color: white;
+  }
+
+  .vertical-navbar-mobile {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 265px;
+    background-color: #cc0000 !important;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .vertical-navbar-mobile.open {
+    display: flex;
+  }
+}
+

@@ -1,0 +1,268 @@
+/* index.css */
+
+/* 全体のスタイル */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    margin: 0;
+    overflow-x: hidden; /* 横スクロールを無効にする */
+}
+
+.container {
+    max-width: 600px; /* フォームの幅を短くする */
+    margin: auto;
+    padding-right: 15px; /* 右の余白を調整 */
+    padding-left: 15px;  /* 左の余白を調整 */
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+}
+
+.register-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover {
+    color: #0056b3;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.mb-3.row {
+    margin-bottom: 15px;
+}
+
+.col-form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.btn-primary, .btn-outline-primary {
+    margin-right: 10px;
+}
+
+.pagination {
+    justify-content: center;
+    padding: 0;
+}
+
+.page-item {
+    list-style: none;
+    display: inline;
+    margin-right: 10px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.page-link:hover {
+    color: #0056b3;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+h1 {
+    position: relative;
+    right:350px; /* 右方向に大きく移動 */
+}
+
+.container h1 {
+    display: inline-block;
+    margin: 0;
+}
+
+.container img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            max-width: 800px;
+            background-color: #f8f8f8;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .form-section, .info-section {
+            flex: 1;
+        }
+        .form-section h3, .info-section h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .form-section .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section .btn:hover {
+            background-color: #333;
+        }
+        .form-section a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .form-section a:hover {
+            text-decoration: underline;
+        }
+        .info-section {
+            text-align: center;
+            background-color: #fff;
+            padding: 60px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .info-section p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .info-section .btn {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .info-section .btn:hover {
+            background-color: #333;
+        }
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            max-width: 800px;
+            background-color: #f8f8f8;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .form-section, .info-section {
+            flex: 1;
+        }
+        .form-section h3, .info-section h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .form-section .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section .btn:hover {
+            background-color: #333;
+        }
+        .form-section a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .form-section a:hover {
+            text-decoration: underline;
+        }
+        .info-section {
+            text-align: center;
+            background-color: #fff;
+            padding: 60px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .info-section p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .info-section .btn {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .info-section .btn:hover {
+            background-color: #333;
+        }
+

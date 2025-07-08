@@ -1,0 +1,28 @@
+.device-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .device-item img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .device-item .btn {
+    margin-top: 10px;
+    display: inline-block;
+  }
+.contai {
+    display: inline-flex; /* 要素を横並びにする */
+    align-items: center; /* 縦の中央揃え */
+}
+
+.vertical-bar {
+    width: 5px;          /* 縦棒の太さ */
+    height: 30px;        /* 縦棒の高さ */
+    background-color: black; /* 縦棒の色 */
+    margin-right: 10px;  /* 縦棒とテキストの間の隙間 */
+}
+
+

@@ -1,0 +1,105 @@
+extends layout.pug
+
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+
+block main_content
+  .mein-contena
+    .container
+      .row
+        .col-md-2
+          ul.list-group
+            each map in json_data.maps
+              if map.displayName !== 'District' && map.displayName !== 'Kasbah' && map.displayName !== 'Drift' && map.displayName !== 'Piazza' && map.displayName !== 'The Range' && map.displayName !== 'Basic Training'
+                li.list-group-item: a(href=`/map/${map.uuid}`) #{map.displayName}
+
+        .col-md-10
+          // 検索フォーム
+          .d-flex.align-items-center.mb-3
+            form.d-flex.align-items-center.form-inline(method="get", action=`/map/${json_data.selectedMap.uuid}`, style="width: 100%; max-width: 600px;")
+              .form-group.mx-2(style="flex: 1;")
+                input.form-control(type="text", name="query", placeholder="名前・キーワードで検索...", style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; font-size: 1.2rem;")
+              button.btn.btn-primary.mx-2(type="submit", style="background: transparent; border: none; padding: 0;")
+                img(src="/task_folder/search-icon.jpeg", alt="検索", style="width: 55px; height: 45px; border-radius: 4px;")
+
+          // ソートオプションを追加するドロップダウンメニュー
+          .d-flex.justify-content-between.align-items-center.mb-3
+            .d-flex.align-items-center
+              span.mr-2 並び替え：
+              a(href=`/map/${json_data.selectedMap.uuid}?sort=rating_high`, class= json_data.selected_sort == 'rating_high' ? 'text-primary' : 'text-secondary') 評価の高い順
+              span.mx-2 | 
+              a(href=`/map/${json_data.selectedMap.uuid}?sort=rating_low`, class= json_data.selected_sort == 'rating_low' ? 'text-primary' : 'text-secondary') 評価の低い順
+              span.mx-2 | 
+              a(href=`/map/${json_data.selectedMap.uuid}?sort=newest`, class= json_data.selected_sort == 'newest' ? 'text-primary' : 'text-secondary') 新規順
+              span.mx-2 | 
+              a(href=`/map/${json_data.selectedMap.uuid}?sort=oldest`, class= json_data.selected_sort == 'oldest' ? 'text-primary' : 'text-secondary') 古い順
+              if json_data.username
+                span.mx-2 | 
+                a(href=`/map/${json_data.selectedMap.uuid}?sort=my_rating`, class= json_data.selected_sort == 'my_rating' ? 'text-primary' : 'text-secondary') 私の評価の高い順
+
+          if json_data.selectedMap
+            .col-md-2
+              h1 【#{json_data.selectedMap.displayName}】
+          else
+            .col-md-2
+              h1 マップ情報が利用できません。
+
+          // 投稿リストの表示
+          if json_data.items && json_data.items.length > 0
+            .row
+              each item, index in json_data.items
+                .col-md-6.mb-4
+                  .card
+                    .card-body
+                      h5.card-title #{'・' + item.name}
+                      if item.URL
+                        // Twitter埋め込み用のHTMLをエスケープせずにレンダリング
+                        p.card-text!= item.URL
+                      else
+                        p.card-text URLが存在しません
+                      form(action="/hyouka" method="POST")
+                        .form-group
+                          .btn-group.btn-group-toggle(data-toggle="buttons")
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star1-${item.id}` value="1")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star2-${item.id}` value="2")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star3-${item.id}` value="3")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star4-${item.id}` value="4")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star5-${item.id}` value="5")
+                              | ★
+                          input(type="hidden" name="idd" value=item.id)
+                        .form-group.mt-3
+                          button.btn.btn-primary(type="submit") 送信
+          else
+            p 投稿がないです。投稿をお願いします。
+
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const ratingGroups = document.querySelectorAll('.btn-group');
+
+      ratingGroups.forEach(group => {
+        const buttons = group.querySelectorAll('.btn');
+
+        buttons.forEach((button, idx) => {
+          button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('active'));
+            for (let i = 0; i <= idx; i++) {
+              buttons[i].classList.add('active');
+            }
+          });
+        });
+      });
+    });
+
+
+

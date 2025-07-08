@@ -1,0 +1,150 @@
+//- top_page.pug: トップページ
+extends layout.pug
+
+block head
+  title= title
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="/stylesheets/top_page.css")
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+
+block main_content
+  .mein-contena
+    .container(style="margin: 0 auto; margin-right: 100px;")
+      //- 以下は既存のコンテンツ
+      .row
+        .col-md-10
+          // 検索フォーム
+          .d-flex.align-items-center.mb-3
+            form.d-flex.align-items-center.form-inline(method="get", action="/top_page", style="width: 100%; max-width: 600px;")
+              .form-group.mx-2(style="flex: 1;")
+                input.form-control(type="text", name="query", placeholder="名前・キーワードで検索...", style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; font-size: 1.2rem; font-weight: bold; color: white;")
+              button.btn.btn-primary.mx-2(type="submit", style="background: transparent; border: none; padding: 0;")
+                img(src="/task_folder/search-icon.jpeg", alt="検索", style="width: 55px; height: 45px; border-radius: 4px; border: 3px solid white;")
+
+          // ソートオプションを追加するドロップダウンメニュー
+          .d-flex.justify-content-between.align-items-center.mb-3
+            .sort-options-container
+              span.mr-2(style="font-weight: bold; color: white;") 並び替え：
+              .btn-group(role="group", aria-label="Sort Options")
+                a.btn.btn-outline-light(href="/top_page?sort=rating_high", class=(json_data.selected_sort === 'rating_high' ? 'active' : '')) 評価の高い順
+                a.btn.btn-outline-light(href="/top_page?sort=rating_low", class=(json_data.selected_sort === 'rating_low' ? 'active' : '')) 評価の低い順
+                a.btn.btn-outline-light(href="/top_page?sort=newest", class=(json_data.selected_sort === 'newest' ? 'active' : '')) 新規順
+                a.btn.btn-outline-light(href="/top_page?sort=oldest", class=(json_data.selected_sort === 'oldest' ? 'active' : '')) 古い順
+                if json_data.username
+                  a.btn.btn-outline-light(href="/top_page?sort=my_rating", class=(json_data.selected_sort === 'my_rating' ? 'active' : '')) 私の評価の高い順
+
+          // 投稿リストの表示
+          .row
+            if json_data.items && json_data.items.length > 0
+              each item, index in json_data.items
+                .col-md-6.mb-4
+                  .card
+                    .card-body
+                      h5.card-title #{'・' + item.name}
+                      if item.URL
+                        //- Twitter動画または保存された動画の判定
+                        if item.URL.includes('twitter.com')
+                          // Twitter動画の埋め込み
+                          blockquote.twitter-tweet
+                            a(href=`${item.URL}`) Twitter動画を表示
+                          script(src="https://platform.twitter.com/widgets.js", charset="utf-8")
+                        else if item.URL.endsWith('.mp4') || item.URL.endsWith('.webm') || item.URL.endsWith('.ogg')
+                          video(controls, style="width: 100%; height: auto; margin-bottom: 20px;", onerror=`reportError('${item.id}')`)
+                            source(src=`/static/task_folder/douga/${item.URL}`, type="video/mp4")
+                        
+                        // エラー報告ボタン
+                        button.btn.btn-danger(type="button", style="display: block; margin-top: 10px; margin-bottom: 10px;", onclick=`reportError('${item.id}')`) 再生エラーを報告
+                      else
+                        p.card-text URLが存在しません
+                      form(action="/hyouka" method="POST")
+                        .form-group
+                          .btn-group.btn-group-toggle(data-toggle="buttons")
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star1-${item.id}` value="1")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star2-${item.id}` value="2")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star3-${item.id}` value="3")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star4-${item.id}` value="4")
+                              | ★
+                            label.btn.btn-outline-secondary
+                              input(type="radio" name="hyouka" id=`star5-${item.id}` value="5")
+                              | ★
+                          input(type="hidden" name="idd" value=item.id)
+                        .form-group.mt-3
+                          button.btn.btn-primary(type="submit") 送信
+            else
+              p 投稿がないです。投稿をお願いします。
+
+          // ページネーション
+          .d-flex.justify-content-center
+            nav
+              ul.pagination
+                if json_data.currentPage > 1
+                  li.page-item
+                    a.page-link(href=`/top_page?page=${json_data.currentPage - 1}&sort=${json_data.selected_sort}`) 前のページ
+                else
+                  li.page-item.disabled
+                    span.page-link 前のページ
+                each page in Array(json_data.totalPages).fill().map((_, i) => i + 1)
+                  if page == json_data.currentPage
+                    li.page-item.active
+                      span.page-link #{page}
+                  else
+                    li.page-item
+                      a.page-link(href=`/top_page?page=${page}&sort=${json_data.selected_sort}`) #{page}
+                if json_data.currentPage < json_data.totalPages
+                  li.page-item
+                    a.page-link(href=`/top_page?page=${json_data.currentPage + 1}&sort=${json_data.selected_sort}`) 次のページ
+                else
+                  li.page-item.disabled
+                    span.page-link 次のページ
+
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const ratingGroups = document.querySelectorAll('.btn-group');
+
+      ratingGroups.forEach(group => {
+        const buttons = group.querySelectorAll('.btn');
+
+        buttons.forEach((button, idx) => {
+          button.addEventListener('click', () => {
+            buttons.forEach(btn => btn.classList.remove('active'));
+            for (let i = 0; i <= idx; i++) {
+              buttons[i].classList.add('active');
+            }
+          });
+        });
+      });
+
+      // エラー報告の関数
+      window.reportError = (videoId) => {
+        fetch('/report-error', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ videoId }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('エラー報告が完了しました。管理者に通知されました。');
+          } else {
+            alert('エラー報告に失敗しました。');
+          }
+        })
+        .catch(error => {
+          console.error('エラー報告時に問題が発生しました:', error);
+          alert('エラー報告時に問題が発生しました。');
+        });
+      };
+    });
+
+
+

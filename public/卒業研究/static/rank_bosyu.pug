@@ -1,0 +1,159 @@
+//- rank_bosyu.pug: 教材管理ページ
+//- レイアウトテンプレート
+extends layout.pug
+
+block head
+  title ランク募集募集
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/rank_bosyu.css', type='text/css')
+  style.
+    .container-fluid {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input.form-control {
+      width: 100%;
+    }
+
+    input.btn-primary {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container {
+      width: 80%; /* 親要素の幅を80%に設定 */
+      max-width: 1200px; /* 最大幅を600pxに設定 */
+    }
+
+    form {
+      width: 100%; /* フォームが親要素に合わせて広がる */
+    }
+
+    input, select {
+      width: 100%; /* 入力欄の幅をフォーム全体に合わせる */
+    }
+
+    form label {
+      color: white;
+      font-weight: bold;
+    }
+    .vertical-navbar {
+      position: fixed;
+      left: 50px; /* 左に隙間を開ける */
+      top: 50px; /* 上に隙間を開ける */
+      width: 265px;
+      height: calc(100% - 40px); /* 上下の隙間を考慮 */
+      background-color: #cc0000; /* 赤っぽい背景色に変更 */
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      border-radius: 15px; /* 角を丸くする */
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      width: 55px; /* ロゴ画像のサイズを調整 */
+      height: 55px;
+    }
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .vertical-navbar a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      width: 90%;
+      text-decoration: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .vertical-navbar a:hover {
+      background-color: #ff6666; /* ホバー時の背景色 */
+    }
+    .vertical-navbar .section-divider {
+      width: 80%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.3);
+      margin: 20px 0;
+    }
+    .vertical-navbar .icon {
+      font-size: 1.2rem;
+    }
+    .button-container {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+      padding-bottom: 70px;
+    }
+    .button-container a {
+      background-color: #ffffff;
+      color: #cc0000;
+      padding: 10px 50px;
+      padding-left: px; /* 左側の余白を増やして右にずらす */
+      border-radius: 10px;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .form-container form h2 {
+      color: white !important;
+      font-weight: bold !important;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+
+
+block main_content        
+  .sub_main
+    .container.d-flex.justify-content-center
+      .form-container(style="width: 80%; max-width: 1100px;") 
+        form(action='/rank_bosyu', method='POST', style="width: 100%;")
+          .form-group
+            h2 【募集フォーム】
+            label ランク帯
+            select.form-control(name="ranktai", style="width: 100%;")
+              option(value="") 選択
+              option(value="アイアン") アイアン
+              option(value="ブロンズ") ブロンズ
+              option(value="シルバー") シルバー
+              option(value="ゴールド") ゴールド
+              option(value="プラチナ") プラチナ
+              option(value="ダイヤ") ダイヤ
+              option(value="アセンダント") アセンダント
+              option(value="イモータル") イモータル
+              option(value="レディアント") レディアント
+          .form-group
+            label 人数
+            input.form-control(type="number", name="ninzuu", placeholder="人数を入力", style="width: 100%;")
+          .form-group
+            label コメント
+            input.form-control(type="text", name="komennto", placeholder="例: サポート募集！", style="width: 100%;")
+          input.btn.btn-primary(type="submit", value="募集する", style="width: 100%;")
+
+

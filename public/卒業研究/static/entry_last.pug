@@ -1,0 +1,26 @@
+//- entry_last.pug: エントリー完了ページのテンプレート
+extends layout.pug
+
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/entry_last.css', type='text/css')
+
+block main_content
+  .container
+    h2(style="color: #ffffff;") VALORANT攻略
+    h3(style="color: #ffffff;") 募集完了
+
+    if inviteLink
+      //- inviteLink変数をリンクのhref属性に使う
+      a.btn.btn-primary(href=inviteLink, target="_blank") Discordボイスチャットサーバーに移動します
+    else
+      p 招待リンクが生成されませんでした。
+
+    //- 他のページに戻るリンク
+    hr
+    a.btn.btn-secondary(href="/rank") ランクトップページに戻る
+
+
+

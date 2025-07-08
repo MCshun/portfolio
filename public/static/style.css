@@ -1,0 +1,361 @@
+/* 全体設定 */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Serif Display', sans-serif; /* Google Fontsから読み込むフォント */
+  line-height: 1.6;
+  overflow-x: hidden;/* 横スクロールを防止 */
+  letter-spacing: 0.18em; 
+}
+
+/* スライドショーの設定 */
+.slideshow {
+  position: relative;
+  top: 20px;  /* 上に少し隙間を設ける */
+  left: 20px; /* 左に少し隙間を設ける */
+  width: calc(100% - 40px);  /* 両サイドの隙間を考慮して幅を調整 */
+  height: calc(100vh - 40px);  /* 高さも上下の隙間を考慮 */
+  z-index: -1;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;  /* 角を丸くする */
+  overflow: hidden;  /* 角丸を維持するために必要 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影を追加して浮き上がらせる効果 */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  border-radius: 20px;  /* スライド画像自体も角丸に */
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* 初期状態で透明 */
+  transition: opacity 2s ease-in-out; /* フェード効果 */
+}
+
+.slide.active {
+  opacity: 1; /* アクティブなスライドを表示 */
+}
+
+/* ヘッダーの設定 */
+header {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 150px 20px 50px;
+}
+
+header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.5em;
+  margin: 10px 0 0;
+}
+
+/* ナビゲーションリンクのスタイル */
+nav {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.nav-center {
+  position: fixed;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: transparent;  /* 初期状態は背景透明 */
+  transition: background 0.3s ease, box-shadow 0.3s ease;  /* 背景と影のスムーズな切り替え */
+}
+
+.nav-center ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.nav-center ul li a {
+  text-decoration: none;
+  color: white;  /* 初期状態は白文字 */
+  font-size: 1.6em;
+  padding: 5px 15px;
+  transition: color 0.3s ease;  /* 文字色のスムーズな切り替え */
+}
+
+/* スクロール後のナビゲーションのスタイル */
+.nav-center.scrolled {
+  background: white;  /* 背景を白色に */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 少し影をつける */
+}
+
+.nav-center.scrolled ul li a {
+  color: black;  /* 文字を黒に */
+}
+
+.nav-center ul li {
+  margin: 0;
+}
+
+.nav-center ul li a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* 各セクションのスタイル */
+section {
+  padding: 80px 20px;
+  text-align: center;
+  margin-top: 200px;  /* セクション全体を下に移動 */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* フッターの設定 */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ロゴのスタイル */
+.logo {
+  position: fixed;
+  top: -15px;
+  left: 15px;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+}
+
+/* ボタン全体のスタイル */
+.fixed-buttons {
+  position: fixed;
+  bottom: 60px;
+  left: 60px;
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  gap: 8px; /* ボタン間の隙間 */
+  z-index: 1000;
+}
+
+/* 基本のボタンスタイル */
+a.button {
+  display: inline-block;
+  text-align: center;
+  padding: 15px 20px; /* ボタン内の余白 */
+  font-size: 1em; /* フォントサイズ */
+  font-weight: bold; /* 文字を太字に */
+  text-decoration: none; /* 下線を消す */
+  border-radius: 8px; /* ボタンの角を少し丸く */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンに影を追加 */
+  transition: background-color 0.3s, transform 0.2s ease; /* ホバー時のアニメーション */
+}
+
+/* ボタンの色 */
+a.button.white {
+  background-color: #ffffff; /* 白いボタン */
+  color: #333333; /* 文字色を黒に */
+  border: 1px solid #ccc; /* 薄い枠線 */
+}
+
+a.button.blue {
+  background-color: #007BFF; /* 青いボタン */
+  color: #ffffff; /* 文字色を白に */
+  border: 1px solid #0056b3; /* 濃い青の枠線 */
+}
+
+/* ホバー時の効果 */
+a.button:hover {
+  transform: translateY(-3px); /* 少し浮かせる */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* ホバー時の影を強調 */
+}
+
+/* ボタンの色をホバーで変化 */
+a.button.white:hover {
+  background-color: #f8f9fa; /* 薄い灰色 */
+}
+
+a.button.blue:hover {
+  background-color: #0056b3; /* 濃い青 */
+}
+
+/* ウェルカムメッセージのスタイル */
+.welcome-message {
+  position: absolute; /* 画面中央に配置 */
+  top: -160%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 完全な中央揃え */
+  text-align: center; /* テキストを中央寄せ */
+  color: white; /* 白文字で背景に映える */
+  font-family: 'Playfair Display', serif;
+  font-size: 1.0em; /* サイズを少し控えめに */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.welcome-message h1, .welcome-message p {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);  /* 黒い影を追加 */
+}
+
+.logo-and-text img {
+  width: 500px;  /* ロゴサイズ調整 */
+  height: auto;
+  display: block;
+  margin: 50px auto;  /* 上下30pxの隙間を追加 */
+}
+
+/* hrのデザインを中央に配置し、左右対称に */
+hr {
+  width: 80px;  /* hrの長さを調整 */
+  border: none;
+  height: 2px;
+  background: #000000;  /* 緑色のhr */
+  margin: 10px auto;  /* 中央配置 */
+}
+
+main {
+  margin-top: -400px;  /* 背景の高さ分だけメインコンテンツを下に移動 */
+}
+
+.access-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;  /* 小さい画面で折り返し対応 */
+  margin: 40px 0;
+}
+
+.access-text {
+  flex: 1;  /* 左側が広がる */
+  padding: 20px;
+  max-width: 50%;  /* 幅を半分に */
+  box-sizing: border-box;
+}
+
+.map-container {
+  flex: 1;  /* 右側が広がる */
+  max-width: 50%;  /* 幅を半分に */
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 12px;  /* 角丸にする */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* 影をつける */
+}
+
+iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 12px;  /* iframe自体の角を丸く */
+}
+
+
+.fixed-buttons {
+  position: fixed;
+  bottom: 50px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+a.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px; /* 初期状態のボタン幅 */
+  height: 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+a.button i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+a.button.white {
+  background-color: white;
+  color: #333;
+}
+
+a.button.blue {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* スクロール後のボタンサイズ */
+.fixed-buttons.small a.button {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+}
+
+/* テキストを非表示にする */
+.fixed-buttons.small a.button span {
+  display: none;
+}
+
+.fixed-buttons.small a.button i {
+  margin-right: 0;  /* アイコンの余白をなくす */
+  font-size: 1.5em;
+}
+
+section {
+  min-height: 100vh; /* 各セクションを画面いっぱいに */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section-wrapper {
+  position: relative;
+  top: 20px;  /* 上に少し隙間を設ける */
+  left: 20px; /* 左に少し隙間を設ける */
+  width: calc(100% - 40px);  /* 両サイドの隙間を考慮して幅を調整 */
+  height: calc(100vh - 40px);  /* 高さも上下の隙間を考慮 */
+  z-index: 0;
+  background: white;  /* 背景色を設定（変更可能） */
+  border-radius: 20px;  /* 角を丸くする */
+  overflow: hidden;  /* 角丸を維持するために必要 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影を追加して浮き上がらせる効果 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

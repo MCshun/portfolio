@@ -1,0 +1,141 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+.container-fluid, .container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top_main {
+  margin-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  color: #555;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.sub_main {
+  width: 60vh;
+  margin-bottom: 20px;
+}
+
+h2, h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+a.btn-primary {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+form .form-group {
+  width: 100%;
+  flex: 1 1 auto;
+  margin-bottom: 10px;
+  min-width: 100vh;
+}
+
+form select, form input, form button {
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+ul li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li a {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+ul li a:hover {
+  background-color: #0056b3;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+a[href="/top_page"] {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Adjusted class for sub_main-container */
+.sub_main-container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-left: 100px; /* Added to move content slightly to the right */
+}

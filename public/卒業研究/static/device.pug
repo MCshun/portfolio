@@ -1,0 +1,295 @@
+extends layout.pug
+
+block head
+  title おすすめデバイス
+  link(rel="stylesheet", href="/stylesheets/device.css")
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  style.
+    .vertical-navbar {
+      position: fixed;
+      left: 50px; /* 左に隙間を開ける */
+      top: 50px; /* 上に隙間を開ける */
+      width: 265px;
+      height: calc(100% - 40px); /* 上下の隙間を考慮 */
+      background-color: #cc0000; /* 赤っぽい背景色に変更 */
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      border-radius: 15px; /* 角を丸くする */
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      width: 55px; /* ロゴ画像のサイズを調整 */
+      height: 55px;
+    }
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .vertical-navbar a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      width: 90%;
+      text-decoration: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .vertical-navbar a:hover {
+      background-color: #ff6666; /* ホバー時の背景色 */
+    }
+    .vertical-navbar .section-divider {
+      width: 80%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.3);
+      margin: 20px 0;
+    }
+    .vertical-navbar .icon {
+      font-size: 1.2rem;
+    }
+    .button-container {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+      padding-bottom: 70px;
+    }
+    .button-container a {
+      background-color: #ffffff;
+      color: #cc0000;
+      padding: 10px 50px;
+      padding-left: px; /* 左側の余白を増やして右にずらす */
+      border-radius: 10px;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .sub_main-container h2,
+    .sub_main-container a,
+    .sub_main-container p,
+    .sub_main-container ul li {
+      color: white;
+      font-weight: bold;
+    }
+    .sub_main {
+      padding-left: 100px;
+    }
+    .container, .container h2, .container h3, .container h4, .container p, .container ul li {
+      color: white;
+      font-weight: bold;
+    }
+    
+
+block main_content
+  .top_main
+    .container
+      .article-content(style="background-color: rgba(128, 128, 128, 0.8); padding: 20px; border-radius: 10px; margin-left: 120px; margin-top: 40px;")
+        // おすすめデバイスセクション
+        section(style="margin-top: 40px; padding-left: 20px;")
+          h2 【最新版】ゲーミングデバイスおすすめ
+          p ここでは、Valorant で快適なプレイができるおすすめデバイスを紹介します。
+          img(src="/task_folder/device/player_gaming_image_1.png" alt="アイコン" style="max-width: 100%; height: auto; width: 70%; margin-bottom: 20px;")
+          h5 ゲーミングデバイスは何を必要か？
+          p(style="margin-bottom: 40px;") VALORANTを快適にプレイできるようにするには、マウスやマウスパッドやイヤホンなどいろいろなデバイスを必要としています。全て説明していきます。
+
+            // Remaining sections with IDs for navigation
+          section#gaming-mouse(style="margin-top: 40px;")
+            div(class="contai")(style="margin-top: 30px;")
+              div(class="vertical-bar")  
+              h3 ゲーミングマウスのおすすめ
+            h3(style="margin-top: 20px; margin-bottom: 20px;") ・ Logicool G PRO X SUPERLIGHT 2
+            h4(style="margin-bottom: 40px;") Logicool G PRO X SUPERLIGHT 2は、約63グラムの超軽量設計で、長時間の使用でも疲れにくく、素早い操作が可能です。HERO 25Kセンサーにより高精度なトラッキングが実現し、LIGHTSPEEDワイヤレス技術で遅延の少ない応答性を提供します。メカニカルスイッチによる快適なクリック感と、最大70時間のバッテリー持続時間も魅力です。シンプルで洗練されたデザインとカスタマイズ可能なボタンにより、FPSゲームやeスポーツに最適なゲーミングマウスです。
+
+          // 商品1がある場合
+          if product1
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product1.largeImageUrls && product1.largeImageUrls.length > 0) || (product1.mediumImageUrls && product1.mediumImageUrls.length > 0) || (product1.smallImageUrls && product1.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct1" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product1.largeImageUrls && product1.largeImageUrls.length > 0 ? product1.largeImageUrls : (product1.mediumImageUrls && product1.mediumImageUrls.length > 0 ? product1.mediumImageUrls : product1.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product1.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct1" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct1" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【Logicool】 
+                  h3= product1.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/3ZSLYWo" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/hNif31" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品1の情報がありません
+          
+          h3(style="margin-top: 20px; margin-bottom: 20px;") ・ Razer Viper V3 PRO
+          h4(style="margin-bottom: 40px;") Razer Viper V3 PROは、約59グラムの超軽量設計で、長時間の使用でも疲れにくく、スピーディな操作が可能です。Razer Focus Pro 30K光学センサーによる高精度なトラッキングと、第3世代オプティカルスイッチの優れた耐久性で、正確かつ素早い反応を実現します。HyperPolling技術による低遅延のワイヤレス接続と最大90時間のバッテリー持続時間も特徴です。FPSゲームに最適な性能と快適さを兼ね備えたマウスです。
+          // 商品2 (Razer Viper V3) がある場合
+          if product2
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product2.largeImageUrls && product2.largeImageUrls.length > 0) || (product2.mediumImageUrls && product2.mediumImageUrls.length > 0) || (product2.smallImageUrls && product2.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct2" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product2.largeImageUrls && product2.largeImageUrls.length > 0 ? product2.largeImageUrls : (product2.mediumImageUrls && product2.mediumImageUrls.length > 0 ? product2.mediumImageUrls : product2.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product2.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct2" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct2" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【Razer】  
+                  h3= product2.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/4eVdRle" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/hNfCxQ" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品2の情報がありません
+          section#gaming-mousepad(style="margin-top: 30px;")
+            div(class="contai")(style="margin-top: 40px;")
+              div(class="vertical-bar")  
+              h4 ゲーミングマウスパッドのおすすめ
+
+            h3(style="margin-top: 20px; margin-bottom: 20px;") ・ Logicool G640
+            h4(style="margin-bottom: 40px;") Logicool G640は、安定した滑りと優れた精度を提供する布製ゲーミングマウスパッドです。中程度の摩擦でコントロールしやすく、滑らかな表面が高精度なマウス操作をサポートします。大きめのサイズで広い操作領域を確保し、ラバーベースが滑りを防止するため、激しいゲームプレイでも安定性を維持します。
+          if product3
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product3.largeImageUrls && product3.largeImageUrls.length > 0) || (product3.mediumImageUrls && product3.mediumImageUrls.length > 0) || (product3.smallImageUrls && product3.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct3" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product3.largeImageUrls && product3.largeImageUrls.length > 0 ? product3.largeImageUrls : (product3.mediumImageUrls && product3.mediumImageUrls.length > 0 ? product3.mediumImageUrls : product3.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product2.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct3" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct3" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【Logicool】  
+                  h3= product3.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/4eMUUB4" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/h5O7Iq" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品3の情報がありません
+  
+          h3(style="margin-top: 20px; margin-bottom: 20px;") ・ ARTISAN NINJA FX 99式 XSOFT
+          h4(style="margin-bottom: 40px;") ARTISAN NINJA FX 99式 XSOFTは、非常に柔らかいクッション性と滑らかな表面で、精密なマウス操作をサポートするゲーミングマウスパッドです。独自の素材による低摩擦でスムーズな滑りを実現しながらも、安定感があり、素早い動きから細かいコントロールまで幅広く対応します。プロゲーマーからも評価が高く、長時間の使用でも快適さを保ちます。
+          if product4
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product4.largeImageUrls && product4.largeImageUrls.length > 0) || (product4.mediumImageUrls && product4.mediumImageUrls.length > 0) || (product4.smallImageUrls && product4.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct4" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product4.largeImageUrls && product4.largeImageUrls.length > 0 ? product4.largeImageUrls : (product4.mediumImageUrls && product4.mediumImageUrls.length > 0 ? product4.mediumImageUrls : product4.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product2.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct4" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct4" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【ARTISAN】  
+                  h3= product4.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/4eMUUB4" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/h5O7Iq" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品3の情報がありません
+          section#gaming-earphones(style="margin-top: 30px;")
+            div(class="contai")(style="margin-top: 30px;")
+              div(class="vertical-bar")  
+              h3 ゲーミングマウスイヤホンのおすすめ
+            h3(style="margin-top: 20px; margin-bottom: 20px;") ・ SHURE SE215SPE-PL-A (有線)
+            h4(style="margin-bottom: 40px;") SHURE SE215SPE-PL-Aは、高音質でクリアなサウンドと深みのある低音が特徴の有線イヤホンです。遮音性が高く、外部ノイズを効果的に遮断することで音楽に集中できます。着脱式ケーブルで耐久性があり、ケーブル交換も簡単に行えます。快適なフィット感を提供するデザインで、長時間の使用でも耳への負担が少ないのも魅力です。
+
+          if product5
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product5.largeImageUrls && product5.largeImageUrls.length > 0) || (product5.mediumImageUrls && product5.mediumImageUrls.length > 0) || (product5.smallImageUrls && product5.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct5" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product5.largeImageUrls && product5.largeImageUrls.length > 0 ? product5.largeImageUrls : (product5.mediumImageUrls && product5.mediumImageUrls.length > 0 ? product5.mediumImageUrls : product5.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product5.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct5" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct5" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【SHURE】  
+                  h3= product5.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/4f1xAjl" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/h5O7Iq" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品3の情報がありません
+          section#gaming-keyboard(style="margin-top: 30px;")
+            div(class="contai")(style="margin-top: 30px;")
+              div(class="vertical-bar")  
+              h3 ゲーミングマウスキーボードのおすすめ
+            h3(style="margin-top: 20px; margin-bottom: 20px;") ・ Wooting 60 HE
+            h4(style="margin-bottom: 40px;") Wooting 60 HEは、ラピッドトリガー機能も備えており、キーを押し込んだ深さに応じて瞬時に入力を反応させることができます。この機能により、キーの押し込みや戻りの途中でも入力が可能になり、素早い操作と繊細なコントロールが求められるゲームプレイで優れた応答性を発揮します。ラピッドトリガーが加わることで、さらに直感的な操作感とパフォーマンスの向上が実現します。
+
+          if product6
+            .device-item(style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; border-radius: 10px;")
+              .row
+                .col-md-4
+                  // 画像が存在する場合にカルーセルを表示
+                  if (product6.largeImageUrls && product6.largeImageUrls.length > 0) || (product6.mediumImageUrls && product6.mediumImageUrls.length > 0) || (product6.smallImageUrls && product6.smallImageUrls.length > 0)
+                    .carousel.slide(id="carouselProduct6" data-ride="carousel")
+                      .carousel-inner
+                        each imgUrl, index in product6.largeImageUrls && product6.largeImageUrls.length > 0 ? product6.largeImageUrls : (product6.mediumImageUrls && product6.mediumImageUrls.length > 0 ? product6.mediumImageUrls : product6.smallImageUrls)
+                          .carousel-item(class=(index === 0 ? 'active' : ''))
+                            img(src=imgUrl.imageUrl alt=product6.itemName class="d-block w-100")
+                      // 前後ボタン
+                      a.carousel-control-prev(href="#carouselProduct6" role="button" data-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.sr-only 前へ
+                      a.carousel-control-next(href="#carouselProduct6" role="button" data-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.sr-only 次へ
+                .col-md-8
+                  h5 【Wooting】  
+                  h3= product6.itemName  
+                  a.btn.btn-warning(href="https://amzn.to/4flKbh9" target="_blank") Amazonで見る
+                  a.btn.btn-danger(href="https://a.r10.to/h5O7Iq" target="_blank" style="margin-left: 10px;") 楽天市場で見る
+          else
+            p 商品3の情報がありません
+  

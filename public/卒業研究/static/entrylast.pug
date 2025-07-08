@@ -1,0 +1,12 @@
+extends layout.pug
+
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/entrylast.css', type='text/css')
+
+block main_content
+  .container-fluid
+    h2 新規登録完了しました。
+    a.btn.btn-primary(href="/") トップに戻る

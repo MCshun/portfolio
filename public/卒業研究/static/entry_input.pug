@@ -1,0 +1,12 @@
+extends layout.pug
+
+block head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  link(rel='stylesheet', href='/stylesheets/entry_input.css', type='text/css')
+
+block main_content
+  .container-fluid
+    h2 投稿完了しました。
+    a.btn.btn-primary(href="/top_page") トップに戻る

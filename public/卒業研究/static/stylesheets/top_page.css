@@ -1,0 +1,269 @@
+/*--------------------------------------------------
+  Global Styles
+--------------------------------------------------*/
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+/*--------------------------------------------------
+  Container
+  ※ 最終的に margin-right: 100px; が有効になります
+--------------------------------------------------*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-right: 100px;
+}
+
+/*--------------------------------------------------
+  Spacing & Navbar
+--------------------------------------------------*/
+.top_main,
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  color: #555;
+}
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+.navbar-nav .nav-item.active .nav-link {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/*--------------------------------------------------
+  Main Content & List Group
+--------------------------------------------------*/
+.mein-contena {
+  display: flex;
+  justify-content: center;
+}
+
+.list-group {
+  width: 100%;
+  text-align: center;
+}
+.list-group-item {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: auto;
+}
+
+/*--------------------------------------------------
+  Card Styles
+--------------------------------------------------*/
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 8px;
+}
+.card-body {
+  padding: 20px;
+}
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/*--------------------------------------------------
+  Form & Button Groups
+--------------------------------------------------*/
+.form-group {
+  margin-bottom: 10px;
+}
+
+/* btn-group-toggle */
+.btn-group-toggle .btn {
+  margin-right: 5px;
+}
+.btn-group-toggle .btn-outline-secondary {
+  border: none;
+  background: transparent;
+  color: gray;
+  font-size: 2rem;
+  padding: 0;
+}
+.btn-group-toggle .btn-outline-secondary.active {
+  color: gold;
+}
+
+/* Dropdown (Sort) */
+.sort-dropdown {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.sort-dropdown option {
+  font-size: 1.2rem;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-form input[type="text"] {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 600px;
+}
+.search-form button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.search-form button img.search-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* btn-group */
+.btn-group .btn {
+  transition: background-color 0.2s, color 0.2s;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+.btn-group .btn.active,
+.btn-group .btn:focus,
+.btn-group .btn:hover {
+  background-color: #ffffff;
+  color: #cc0000;
+  border-color: #ffffff;
+}
+
+/*--------------------------------------------------
+  Vertical Navbar & Related Components
+--------------------------------------------------*/
+.vertical-navbar {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  width: 265px;
+  height: calc(100% - 40px);
+  background-color: #cc0000;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.logo-container img {
+  width: 55px;
+  height: 55px;
+}
+.logo-container .logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.vertical-navbar a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  width: 90%;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+.vertical-navbar a:hover {
+  background-color: #ff6666;
+}
+.vertical-navbar .section-divider {
+  width: 80%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+.vertical-navbar .icon {
+  font-size: 1.2rem;
+}
+.button-container {
+  margin-top: auto;
+  display: flex;
+  gap: 15px;
+  padding-bottom: 70px;
+}
+.button-container a {
+  background-color: #ffffff;
+  color: #cc0000;
+  padding: 10px 50px;
+  /* padding-left: px; ← この行は元コードのままですが不完全です */
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/*--------------------------------------------------
+  Responsive Styles
+--------------------------------------------------*/
+@media (max-width: 768px) {
+  /* Vertical Navbar: 上部配置に変更 */
+  .vertical-navbar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-radius: 0;
+  }
+  .vertical-navbar a {
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  }
+  .button-container {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+  }
+  /* Container 調整 */
+  .container {
+    margin-right: 0;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* 小さい画面ではカードを1列表示 */
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AceAcademy Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            max-width: 800px;
+            background-color: #f8f8f8;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .form-section, .info-section {
+            flex: 1;
+            text-align: left;
+        }
+        .form-section h3, .info-section h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .form-section .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section .btn:hover {
+            background-color: #333;
+        }
+        .form-section a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .form-section a:hover {
+            text-decoration: underline;
+        }
+        .info-section {
+            text-align: center;
+            background-color: #fff;
+            padding: 60px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .info-section p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .info-section .btn {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .info-section .btn:hover {
+            background-color: #333;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+            .form-section, .info-section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container text-center d-flex align-items-center justify-content-center">
+            <img src="/task_folder/a.png" alt="Logo" style="width: 100px; height: 100px;" />
+            <h1 style="font-weight: 550; font-size: 3rem; margin: 0;">AceAcademy</h1>
+        </div>
+        <hr>
+        <div class="login-container">
+            <!-- 左側のログインフォーム -->
+            <form action="/login" method="POST">
+                <div class="form-section">
+                    <h3>メールアドレス (ID)</h3>
+                    <input type="text" name="name" placeholder="メールアドレスを入力してください" required />
+                    <h3>パスワード</h3>
+                    <input type="password" name="password" placeholder="パスワードを入力してください" required />
+                    <button class="btn" type="submit">ログインする</button>
+                    <a href="/forgot-password">パスワードをお忘れの方はこちら »</a>
+                </div>
+            </form>
+            <!-- 右側の新規登録 -->
+            <div class="info-section">
+                <h3>はじめてご利用の方</h3>
+                <p>一部の機能を使用するためには<br>会員登録が必要です</p>
+                <a class="btn" href="/entry">新規会員登録</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

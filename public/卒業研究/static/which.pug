@@ -1,0 +1,91 @@
+//- top_page.pug: トップページ
+extends layout.pug
+
+block head
+  title= title
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', type='text/css')
+  link(rel="stylesheet", href="/stylesheets/toukou.css")
+  style.
+    .vertical-navbar {
+      position: fixed;
+      left: 50px; /* 左に隙間を開ける */
+      top: 50px; /* 上に隙間を開ける */
+      width: 265px;
+      height: calc(100% - 40px); /* 上下の隙間を考慮 */
+      background-color: #cc0000; /* 赤っぽい背景色に変更 */
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      border-radius: 15px; /* 角を丸くする */
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      width: 55px; /* ロゴ画像のサイズを調整 */
+      height: 55px;
+    }
+    .logo-container .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .vertical-navbar a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      width: 90%;
+      text-decoration: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .vertical-navbar a:hover {
+      background-color: #ff6666; /* ホバー時の背景色 */
+    }
+    .vertical-navbar .section-divider {
+      width: 80%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.3);
+      margin: 20px 0;
+    }
+    .vertical-navbar .icon {
+      font-size: 1.2rem;
+    }
+    .button-container {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+      padding-bottom: 70px;
+    }
+    .button-container a {
+      background-color: #ffffff;
+      color: #cc0000;
+      padding: 10px 50px;
+      padding-left: px; /* 左側の余白を増やして右にずらす */
+      border-radius: 10px;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+
+block main_content
+  .sub_main2
+    .container(style="margin-top: 20px; background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; max-width: 850px;")
+      // Xからアップロードボタン
+      a.btn.btn-primary.custom-btn(href="/toukou", style="font-size: 1.5rem; padding: 15px 0; display: block; width: 100%; margin-bottom: 15px;") X からアップロード
+      // 動画をアップロードボタン
+      a.btn.btn-secondary.custom-btn(href="/upload", style="font-size: 1.5rem; padding: 15px 0; display: block; width: 100%;") 動画をアップロード

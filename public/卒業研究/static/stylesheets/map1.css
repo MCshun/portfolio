@@ -1,0 +1,147 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+.container-fluid, .container-fluid1-1, .container-fluid1-2 {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.top_main {
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  font-weight: bold;
+  text-align: center;
+}
+
+.mein-contena {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container-fluid1-1, .container-fluid1-2 {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.container-fluid1-1 li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.container-fluid1-1 li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.container-fluid1-1 li a:hover {
+  color: #0056b3;
+}
+
+.container-fluid1-2 h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container-fluid1-2 img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#sortForm {
+  margin-bottom: 20px;
+}
+
+#sortForm select {
+  font-size: 1rem;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#sortForm button {
+  font-size: 1rem;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sortForm button:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+div h2 {
+  margin-top: 20px;
+  text-align: left;
+}
+
+form .form-group {
+  margin-bottom: 10px;
+}
+
+form .form-group label {
+  margin-right: 10px;
+}
+
+form .form-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+form button[type="submit"] {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #0056b3;
+}

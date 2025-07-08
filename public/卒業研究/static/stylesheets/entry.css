@@ -1,0 +1,43 @@
+/* entry.css */
+
+/* 全体のスタイル */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+  margin: 0;
+  overflow-x: hidden; /* 横スクロールを無効にする */
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding-right: 15px; /* 右の余白を調整 */
+  padding-left: 15px;  /* 左の余白を調整 */
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.btn-primary, .btn-outline-primary {
+  margin-right: 10px;
+}
+
+h1.text-center {
+  text-align: left; /* 左寄せ */
+  margin-left: 20px; /* 左に20px移動 */
+  margin-top: 20px; /* 上から20px余白を追加 */
+}

@@ -1,0 +1,156 @@
+/* profile.css */
+
+/* 全体のスタイル */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    margin: 0;
+    overflow-x: hidden; /* 横スクロールを無効にする */
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: auto;
+    padding-right: 15px; /* 右の余白を調整 */
+    padding-left: 15px;  /* 左の余白を調整 */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* ナビゲーションバーのスタイル */
+.navbar {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1rem; /* フォントサイズを標準に戻す */
+    padding: 10px 20px;
+    color: #555;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* プロフィール情報のスタイル */
+.profile-container {
+    background-color: #ffffff;
+    padding: 20px 30px; /* 左右に余白を追加 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.profile-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 項目間の間隔を調整 */
+}
+
+.profile-details p {
+    font-size: 1.2em;
+    margin: 5px 0; /* 各項目の上下の間隔を調整 */
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
+    align-items: center;
+}
+
+.profile-details p strong {
+    min-width: 150px;
+    margin-right: 10px;
+    color: #555;
+    text-align: left;
+}
+
+.profile-details p span {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* ボタンのスタイル */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* エージェント画像のスタイル */
+#agentImage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid black;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#agentImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像のアスペクト比を保つ */
+}
+
+/* モバイル対応のスタイル */
+@media (max-width: 576px) {
+    .profile-details p {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .profile-details p strong {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .profile-details p span {
+        margin-bottom: 10px;
+    }
+}
+
+/* ボタンの配置調整 */
+.form-group.text-center {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* ボタン間のスペースを調整 */
+}
+
+.form-group.text-center button,
+.form-group.text-center a {
+    margin: 0;
+}

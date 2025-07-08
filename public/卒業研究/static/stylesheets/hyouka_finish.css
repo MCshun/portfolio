@@ -1,0 +1,38 @@
+/* hyouka_finish.css */
+
+/* 全体のスタイル */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    margin: 0;
+    overflow-x: hidden; /* 横スクロールを無効にする */
+}
+
+.container-fluid {
+    max-width: 1200px;
+    margin: auto;
+    padding-right: 15px; /* 右の余白を調整 */
+    padding-left: 15px;  /* 左の余白を調整 */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+a.btn-primary {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+/* 必要に応じて追加のスタイルをここに記載 */
